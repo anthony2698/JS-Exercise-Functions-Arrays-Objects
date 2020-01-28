@@ -214,11 +214,12 @@ function sortCarInventory(inventory) {
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
 function getModelYears(inventory) {
-  for(let i = 0; i <= inventory.length; i++) {
-    let arr = [];
-    arr.push(inventory[i].car_year);
-    return arr;
+  let arr = [];
+  for(let i = 0; i < inventory.length; i++) {
+    let year = inventory[i].car_year;
+    arr.push(year);
   }
+  return arr;
 }
 
 /**
@@ -233,8 +234,14 @@ function getModelYears(inventory) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+function getOlderCars(inventory, max) {
+  let arr = [];
+  for(let i = 0; i < inventory.length; i++) {
+    if(inventory[i].car_year <= max) {
+      arr.push(inventory[i]);
+    } 
+  }
+  return arr;
 }
 
 /**
@@ -248,8 +255,15 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(inventory) {
+  let arr = [];
+  for(let i = 0; i < inventory.length; i++) {
+    if(inventory[i].car_make === 'Audi' || inventory[i].car_make === 'Mercedes-Benz' || inventory[i].car_make === 'Volkswagen' || inventory[i].car_make === 'BMW') {
+      let make = inventory[i];
+      arr.push(make);
+    }
+  }
+  return arr;
 }
 
 /**
