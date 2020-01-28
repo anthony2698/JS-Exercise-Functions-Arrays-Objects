@@ -196,7 +196,12 @@ function getCarInfoById(inventory, num) {
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
 function sortCarInventory(inventory) {
-  
+  let carSort = inventory.sort((a,b) => {
+    if(a.car_model > b.car_model) return 1;
+    else if(b.car_model > a.car_model) return -1;
+    else return 0;
+  });
+  return carSort;
 }
 
 /**
@@ -210,10 +215,10 @@ function sortCarInventory(inventory) {
 */
 function getModelYears(inventory) {
   for(let i = 0; i <= inventory.length; i++) {
-    var arr = [];
+    let arr = [];
     arr.push(inventory[i].car_year);
+    return arr;
   }
-  return arr;
 }
 
 /**
@@ -265,9 +270,15 @@ function getGermanCars(/* code here */) {
  *   return num * 2
  * }
 */
-const sum = null; // code here!
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+const sum = (a,b) => {
+  return a + b;
+}  
+const addFive = (num) => {
+  return num + 5; 
+} 
+const argTimesTwo = (num) => {
+  return num * 2; 
+}
 
 /**
  * ### Challenge `carMaker`
